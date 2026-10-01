@@ -1,0 +1,204 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<title>Aariz | IT Student & Web Developer</title>
+<link href="https://fonts.googleapis.com/css2?family=Shippori+Mincho:wght@400;600;800&family=DM+Sans:wght@400;500&display=swap" rel="stylesheet">
+<style>
+:root{--bg:#120c2e;--surface:#1c1445;--line:#3a2c7a;--text:#f6ecff;--muted:#b9a9e0;--accent:#ffb38a;--sakura:#ffc2d8;--grid:rgba(255,194,216,.07);
+box-sizing:border-box;padding-top:env(safe-area-inset-top,0px);padding-bottom:env(safe-area-inset-bottom,0px)}
+@media(prefers-color-scheme:light){:root:not([data-theme="dark"]){--bg:#fff4ef;--surface:#ffffff;--line:#ecd3dc;--text:#2a1b4d;--muted:#6c5b93;--accent:#b8386f;--grid:rgba(42,27,77,.06)}}
+:root[data-theme="light"]{--bg:#fff4ef;--surface:#ffffff;--line:#ecd3dc;--text:#2a1b4d;--muted:#6c5b93;--accent:#b8386f;--grid:rgba(42,27,77,.06)}
+:root[data-theme="dark"]{--bg:#120c2e;--surface:#1c1445;--line:#3a2c7a;--text:#f6ecff;--muted:#b9a9e0;--accent:#ffb38a;--grid:rgba(255,194,216,.07)}
+html{scroll-behavior:smooth;scroll-padding-top:env(safe-area-inset-top,0px)}
+*{box-sizing:border-box;margin:0}
+body{background:var(--bg);color:var(--text);font:400 1.05rem/1.75 'DM Sans',system-ui,sans-serif;overflow-x:hidden;
+background-image:linear-gradient(var(--grid) 1px,transparent 1px),linear-gradient(90deg,var(--grid) 1px,transparent 1px);background-size:48px 48px}
+h1,h2,h3{font-family:'Shippori Mincho',Georgia,serif;line-height:1.1}
+a{color:inherit}
+:focus-visible{outline:2px solid var(--accent);outline-offset:3px}
+nav{position:fixed;top:env(safe-area-inset-top,0px);left:0;right:0;z-index:10;display:flex;justify-content:space-between;align-items:center;padding:14px clamp(18px,5vw,64px);color:#f6ecff;mix-blend-mode:normal}
+nav.solid{backdrop-filter:blur(14px);background:color-mix(in srgb,var(--bg) 78%,transparent);color:var(--text);border-bottom:1px solid var(--line)}
+nav b{font:800 1.3rem 'Shippori Mincho'}
+nav div{display:flex;gap:22px;font-size:.95rem}
+nav a{text-decoration:none;opacity:.85;transition:opacity .2s}
+nav a:hover{opacity:1;text-decoration:underline;text-underline-offset:6px}
+/* hero: twilight sky with skyline */
+#hero{position:relative;min-height:100svh;overflow:hidden;color:#f6ecff;display:flex;align-items:center;
+background:linear-gradient(180deg,#1b1447 0%,#4b2a86 38%,#c94f8a 72%,#ffb38a 100%)}
+#sky{position:absolute;inset:0;width:100%;height:100%}
+.layer{position:absolute;left:-4%;right:-4%;bottom:0;height:52%;transition:transform .5s ease-out}
+.layer svg{width:100%;height:100%;display:block}
+.sun{position:absolute;width:min(34vw,300px);aspect-ratio:1;border-radius:50%;right:12%;top:20%;background:radial-gradient(circle,#fff1d6,#ffb38a 55%,transparent 72%);opacity:.85;filter:blur(2px)}
+.hero-in{position:relative;z-index:2;padding:0 clamp(18px,6vw,90px);width:100%;max-width:1180px;margin:auto}
+.jp{position:absolute;right:clamp(18px,5vw,64px);top:110px;writing-mode:vertical-rl;font:600 clamp(2rem,6vw,4.5rem) 'Shippori Mincho';color:rgba(255,241,214,.35);letter-spacing:.2em;z-index:2}
+.hi{opacity:0;animation:up .8s .1s forwards;color:#ffe3d1}
+h1{font-size:clamp(4rem,17vw,11.5rem);font-weight:800;letter-spacing:-.03em;text-shadow:0 8px 60px rgba(90,20,110,.5)}
+h1 span{display:inline-block;opacity:0;filter:blur(14px);transform:translateY(30px);animation:focus 1.1s cubic-bezier(.2,.8,.2,1) forwards}
+.role{margin-top:14px;font-size:clamp(1.15rem,3vw,1.7rem);font-family:'Shippori Mincho';color:#ffe3d1;min-height:2.2em;opacity:0;animation:up .8s 1.1s forwards}
+.role em{font-style:normal;color:#fff}
+.caret{display:inline-block;width:2px;height:1em;background:#fff;margin-left:3px;vertical-align:-.12em;animation:blink 1s steps(1) infinite}
+.cta{display:flex;gap:14px;flex-wrap:wrap;margin-top:26px;opacity:0;animation:up .8s 1.3s forwards}
+.btn{display:inline-block;padding:13px 26px;border-radius:4px;text-decoration:none;font-weight:500;border:1px solid rgba(255,241,214,.6);color:#fff;transition:transform .25s,background .25s}
+.btn.main{background:#fff1d6;color:#3a1450;border-color:#fff1d6}
+.btn:hover{transform:translateY(-3px)}
+.petal{position:absolute;top:-30px;width:12px;height:9px;border-radius:70% 0 70% 0;background:var(--sakura);opacity:.85;z-index:3;pointer-events:none;animation:fall linear infinite}
+@keyframes fall{to{transform:translate(var(--dx),110vh) rotate(720deg)}}
+@keyframes focus{to{opacity:1;filter:blur(0);transform:none}}
+@keyframes up{from{opacity:0;transform:translateY(24px)}to{opacity:1;transform:none}}
+@keyframes blink{50%{opacity:0}}
+/* sections as drawing sheets */
+section.s{position:relative;padding:clamp(70px,10vw,130px) clamp(18px,5vw,64px);max-width:1180px;margin:auto}
+h2{font-size:clamp(2rem,5vw,3.3rem);margin-bottom:12px}
+.dim{height:14px;margin-bottom:34px;display:flex;align-items:center;color:var(--accent)}
+.dim i{flex:1;height:1px;background:currentColor;transform:scaleX(0);transform-origin:left;transition:transform 1.2s cubic-bezier(.2,.8,.2,1)}
+.dim::before,.dim::after{content:"";width:1px;height:14px;background:currentColor}
+.on .dim i,.dim.on i{transform:scaleX(1)}
+.dim small{margin:0 12px;font-size:.8rem;color:var(--muted)}
+.about{display:grid;grid-template-columns:1.4fr 1fr;gap:clamp(24px,5vw,70px)}
+.about p{color:var(--muted);max-width:60ch;margin-bottom:16px}
+.plate{border:1px solid var(--line);background:var(--surface);padding:22px 24px;position:relative}
+.plate+.plate{margin-top:14px}
+.plate::after{content:"";position:absolute;right:-1px;bottom:-1px;width:16px;height:16px;border-right:2px solid var(--accent);border-bottom:2px solid var(--accent)}
+.plate b{display:block;font:800 2.2rem 'Shippori Mincho';color:var(--accent)}
+.plate span{color:var(--muted);font-size:.95rem}
+.skills{display:flex;flex-wrap:wrap;gap:12px}
+.skills span{padding:9px 20px;border:1px solid var(--line);background:var(--surface);transition:transform .25s,border-color .25s,color .25s}
+.skills span:hover{transform:translateY(-4px);border-color:var(--accent);color:var(--accent)}
+.grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(280px,1fr));gap:22px}
+.card{position:relative;border:1px solid var(--line);background:var(--surface);padding:30px;overflow:hidden;transition:transform .15s ease-out,border-color .3s;will-change:transform}
+.card::before{content:"";position:absolute;inset:0;background:radial-gradient(380px circle at var(--mx,50%) var(--my,0%),color-mix(in srgb,var(--sakura) 20%,transparent),transparent 60%);opacity:0;transition:opacity .3s}
+.card:hover{border-color:var(--accent)}
+.card:hover::before{opacity:1}
+.card>*{position:relative}
+.card h3{font-size:1.6rem;margin:6px 0 10px}
+.card p{color:var(--muted);margin-bottom:18px}
+.tag{font-size:.85rem;color:var(--accent)}
+.duo{display:grid;grid-template-columns:repeat(auto-fit,minmax(260px,1fr));gap:22px}
+.duo .plate p{color:var(--muted);margin-top:6px}
+.duo h3{font-size:1.5rem}
+.rv{opacity:0;transform:translateY(26px);transition:opacity .8s,transform .8s cubic-bezier(.2,.8,.2,1)}
+.rv.on{opacity:1;transform:none}
+.contact{text-align:center}
+.contact .dim{max-width:420px;margin:0 auto 30px}
+.mail{display:inline-block;font:800 clamp(1.2rem,5vw,2.8rem) 'Shippori Mincho';text-decoration:none;border-bottom:3px solid var(--accent);padding-bottom:4px;word-break:break-all;transition:color .25s}
+.mail:hover{color:var(--accent)}
+footer{text-align:center;padding:30px;color:var(--muted);font-size:.9rem;border-top:1px solid var(--line)}
+@media(max-width:760px){.about{grid-template-columns:1fr}nav div{gap:14px;font-size:.88rem}.jp{display:none}}
+@media(prefers-reduced-motion:reduce){*{animation-duration:.01ms!important;animation-delay:0s!important;transition:none!important}.rv{opacity:1;transform:none}.petal{display:none}}
+</style>
+</head>
+<body>
+<nav id="nav"><b>Aariz</b><div><a href="#about">About</a><a href="#skills">Skills</a><a href="#work">Work</a><a href="#contact">Contact</a></div></nav>
+
+<header id="hero">
+<div class="sun" aria-hidden="true"></div>
+<div class="jp" aria-hidden="true">夢と建築</div>
+<div id="sky" aria-hidden="true"></div>
+<div class="hero-in">
+<p class="hi">Hello, I'm</p>
+<h1 id="name" aria-label="Aariz"></h1>
+<p class="role">I build <em id="typed"></em><span class="caret"></span></p>
+<div class="cta"><a class="btn main" href="#work">See my work</a><a class="btn" href="#contact">Get in touch</a></div>
+</div>
+</header>
+
+<section class="s" id="about">
+<h2 class="rv">From biology books to building software.</h2>
+<div class="dim rv"><i></i><small>about</small><i></i></div>
+<div class="about rv">
+<div>
+<p>I'm a BSc IT student at SHMM Degree College, Anantnag, affiliated with the University of Kashmir. I started in the PCB stream with no computing background, then chose IT to build real skills and earn from them early.</p>
+<p>I learn by making things: clean websites, smooth interfaces, and projects that solve real problems. I'm also exploring architecture, because good software and good buildings both start with structure.</p>
+</div>
+<div>
+<div class="plate"><b data-n="4">0</b><span>Languages I code in: HTML, CSS, JavaScript, Python</span></div>
+<div class="plate"><b data-n="2">0</b><span>Fields I'm building toward: IT and architecture</span></div>
+</div>
+</div>
+</section>
+
+<section class="s" id="skills">
+<h2 class="rv">Skills</h2>
+<div class="dim rv"><i></i><small>toolkit</small><i></i></div>
+<div class="skills rv"><span>HTML5</span><span>CSS3</span><span>JavaScript</span><span>Python</span><span>Responsive design</span><span>Git & GitHub</span><span>Problem solving</span></div>
+</section>
+
+<section class="s" id="work">
+<h2 class="rv">Selected work</h2>
+<div class="dim rv"><i></i><small>projects</small><i></i></div>
+<!-- Replace titles, text and links with your real projects -->
+<div class="grid">
+<article class="card rv"><span class="tag">HTML · CSS · JS</span><h3>Personal portfolio</h3><p>This site: a twilight skyline hero, drawing-sheet layout, and interactive cards.</p><a href="#">View project</a></article>
+<article class="card rv"><span class="tag">Add your stack</span><h3>Your next project</h3><p>Describe what it does, who it helps, and what you learned building it.</p><a href="#">View project</a></article>
+<article class="card rv"><span class="tag">Add your stack</span><h3>Another project</h3><p>Keep it to two sentences. Show results, not just tools.</p><a href="#">View project</a></article>
+</div>
+</section>
+
+<section class="s" id="interests">
+<h2 class="rv">Beyond code</h2>
+<div class="dim rv"><i></i><small>interests</small><i></i></div>
+<div class="duo rv">
+<div class="plate"><h3>Anime</h3><p>Worlds built from light, weather and city streets. They shape how I think about mood and detail in design.</p></div>
+<div class="plate"><h3>Architecture</h3><p>Space, structure and proportion. I'm preparing for it alongside my IT degree.</p></div>
+</div>
+</section>
+
+<section class="s contact" id="contact">
+<h2 class="rv">Let's build something.</h2>
+<div class="dim rv"><i></i><small>contact</small><i></i></div>
+<a class="mail rv" href="mailto:syedaarizlatief@gmail.com">syedaarizlatief@gmail.com</a>
+</section>
+<footer>© <span id="yr"></span> Aariz. Built with HTML, CSS and JavaScript.</footer>
+
+<script>
+const reduce=matchMedia('(prefers-reduced-motion: reduce)').matches;
+const rnd=(a,b)=>a+Math.random()*(b-a);
+// Name reveal
+const nm=document.getElementById('name');
+[...'Aariz'].forEach((c,i)=>{const s=document.createElement('span');s.textContent=c;s.style.animationDelay=(.3+i*.12)+'s';s.setAttribute('aria-hidden','true');nm.appendChild(s)});
+// Skyline layers
+const sky=document.getElementById('sky');
+const layers=[{n:26,min:40,max:190,c:'#3a2277',o:.85,w:1,k:.012},{n:20,min:70,max:260,c:'#22124f',o:1,w:1,k:.028},{n:14,min:90,max:330,c:'#10082b',o:1,w:1,k:.05}];
+layers.forEach((L,li)=>{let x=0,html='';const W=1600;
+while(x<W){const bw=rnd(38,110),bh=rnd(L.min,L.max);
+html+=`<rect x="${x}" y="${400-bh}" width="${bw}" height="${bh}" fill="${L.c}" opacity="${L.o}"/>`;
+if(Math.random()<.3)html+=`<rect x="${x+bw/2-2}" y="${400-bh-rnd(20,50)}" width="4" height="60" fill="${L.c}"/>`;
+if(li>0)for(let wy=400-bh+14;wy<390;wy+=20)for(let wx=x+8;wx<x+bw-10;wx+=16)if(Math.random()<.14)html+=`<rect class="win" x="${wx}" y="${wy}" width="6" height="8" fill="#ffd9a0"/>`;
+x+=bw+rnd(0,6)}
+const d=document.createElement('div');d.className='layer';d.dataset.k=L.k;
+d.innerHTML=`<svg viewBox="0 0 1600 400" preserveAspectRatio="xMidYMax slice">${html}</svg>`;sky.appendChild(d)});
+addEventListener('pointermove',e=>{if(reduce)return;const dx=e.clientX/innerWidth-.5;
+sky.querySelectorAll('.layer').forEach(l=>l.style.transform=`translateX(${-dx*l.dataset.k*innerWidth}px)`)});
+// Window twinkle
+if(!reduce)setInterval(()=>{const w=document.querySelectorAll('.win');const e=w[Math.floor(Math.random()*w.length)];if(e)e.style.opacity=e.style.opacity==='0.2'?'1':'0.2'},220);
+// Sakura
+if(!reduce)for(let i=0;i<22;i++){const p=document.createElement('i');p.className='petal';
+p.style.cssText=`left:${rnd(0,100)}%;--dx:${rnd(-160,120)}px;animation-duration:${rnd(9,17)}s;animation-delay:${-rnd(0,17)}s;transform:scale(${rnd(.6,1.3)})`;
+document.getElementById('hero').appendChild(p)}
+// Typing
+const roles=['clean websites.','smooth interfaces.','things that last.','my future in tech.'];
+const t=document.getElementById('typed');let r=0,c=0,del=false;
+function type(){const w=roles[r];t.textContent=w.slice(0,c);
+if(!del&&c===w.length){del=true;return setTimeout(type,1400)}
+if(del&&c===0){del=false;r=(r+1)%roles.length}
+c+=del?-1:1;setTimeout(type,del?35:70)}
+reduce?t.textContent=roles[0]:setTimeout(type,1500);
+// Reveal + counters
+const io=new IntersectionObserver(es=>es.forEach(e=>{if(e.isIntersecting){e.target.classList.add('on');
+e.target.querySelectorAll('[data-n]').forEach(n=>{const to=+n.dataset.n;let v=0;const id=setInterval(()=>{v++;n.textContent=v;if(v>=to)clearInterval(id)},300)});io.unobserve(e.target)}}),{threshold:.15});
+document.querySelectorAll('.rv').forEach(el=>io.observe(el));
+// Card spotlight + tilt
+document.querySelectorAll('.card').forEach(k=>{
+k.addEventListener('pointermove',e=>{const b=k.getBoundingClientRect(),x=(e.clientX-b.left)/b.width,y=(e.clientY-b.top)/b.height;
+k.style.setProperty('--mx',x*100+'%');k.style.setProperty('--my',y*100+'%');
+if(!reduce)k.style.transform=`perspective(700px) rotateY(${(x-.5)*8}deg) rotateX(${(.5-y)*8}deg) translateY(-4px)`});
+k.addEventListener('pointerleave',()=>k.style.transform='')});
+// Nav state
+const nav=document.getElementById('nav'),hero=document.getElementById('hero');
+new IntersectionObserver(([e])=>nav.classList.toggle('solid',!e.isIntersecting),{rootMargin:'-70px 0px 0px 0px'}).observe(hero);
+document.getElementById('yr').textContent=new Date().getFullYear();
+</script>
+</body>
+</html>
